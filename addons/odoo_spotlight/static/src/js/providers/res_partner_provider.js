@@ -1,9 +1,11 @@
 /** @odoo-module **/
 
 import { spotlightProviderRegistry } from "../spotlight_provider_registry";
+import { _t } from "@web/core/l10n/translation";
 
-spotlightProviderRegistry.add("res_partner", {
-  section: "Partners",
+export const ResPartnerSpotlightProvider =  {
+  name: "res_partner",
+  section: _t("Partners"),
   icon: "/contacts/static/description/icon.png",
   priority: 10,
 
@@ -21,7 +23,7 @@ spotlightProviderRegistry.add("res_partner", {
 
     return partners.map((p) => ({
       title: p.name,
-      subtitle: p.email || (p.is_company ? "Company" : "Contact"),
+      subtitle: p.email || (p.is_company ? _t("Company") : _t("Contact")),
       action: () =>
         env.services.action.doAction({
           type: "ir.actions.act_window",
@@ -31,4 +33,6 @@ spotlightProviderRegistry.add("res_partner", {
         }),
     }));
   },
-});
+}
+
+spotlightProviderRegistry.add("res_partner", ResPartnerSpotlightProvider);

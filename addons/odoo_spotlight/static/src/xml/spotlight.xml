@@ -19,17 +19,15 @@
       <div class="o_spotlight_results position-relative overflow-auto">
         <i t-if="state.isLoading" title="Loading..." role="img" aria-label="Loading..."
           class="fa fa-spinner fa-spin" />
-        <i t-else="" t-att-title="Type something to search a record" role="img"
-          t-att-aria-label="Type something to search a record"
-          class="oi oi-search" />
 
-        <t t-if="!state.results.length">
+         <t t-if="!state.results.length and state.searchValue">
           <div
             class="o_command_palette_listbox_empty px-4 py-3 fst-italic">No results</div>
         </t>
 
         <t t-if="!state.searchValue">
-          <span>Type something to start searching</span>
+          <div
+            class="o_command_palette_listbox_empty px-4 py-3 fst-italic">Type something to start searching</div>
         </t>
 
         <t t-foreach="state.results" t-as="section" t-key="section.section + section.icon">
