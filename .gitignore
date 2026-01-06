@@ -1,0 +1,7 @@
+filestore
+odoo
+pgdata
+
+.DS*
+
+addons/**/*/__pycache__

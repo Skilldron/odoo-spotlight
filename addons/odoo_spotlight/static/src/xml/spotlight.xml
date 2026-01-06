@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t t-name="odoo_spotlight.SpotlightPalette" owl="1">
+
+  <Dialog header="false"
+    footer="false"
+    size="'md'"
+    contentClass="'o_spotlight_dialog'">
+
+    <div t-ref="root">
+      <div class="o_spotlight_search_wrapper">
+        <i class="fa fa-search o_spotlight_search_icon"></i>
+        <input class="o_spotlight_search"
+          t-att-value="state.searchValue"
+          placeholder="Write to search related items..."
+          t-ref="searchInput"
+          t-on-input="onSearchInput" />
+      </div>
+
+      <div class="o_spotlight_results position-relative overflow-auto">
+        <i t-if="state.isLoading" title="Loading..." role="img" aria-label="Loading..."
+          class="fa fa-spinner fa-spin" />
+        <i t-else="" t-att-title="Type something to search a record" role="img"
+          t-att-aria-label="Type something to search a record"
+          class="oi oi-search" />
+
+        <t t-if="!state.results.length">
+          <div
+            class="o_command_palette_listbox_empty px-4 py-3 fst-italic">No results</div>
+        </t>
+
+        <t t-if="!state.searchValue">
+          <span>Type something to start searching</span>
+        </t>
+
+        <t t-foreach="state.results" t-as="section" t-key="section.section + section.icon">
+          <SpotlightSection
+            t-props="{
+              title: section.section,
+              icon: section.icon,
+              items: section.items
+            }" />
+        </t>
+      </div>
+
+      <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted">
+        <span class="fw-bolder text-primary">TIP</span> — Press <kbd>Tab</kbd> to switch to Odoo
+        command palette </div>
+    </div>
+  </Dialog>
+</t>
