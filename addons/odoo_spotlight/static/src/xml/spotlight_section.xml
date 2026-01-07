@@ -9,12 +9,21 @@
               <span class="o_spotlight_section_title"><t t-esc="props.title"/></span>
             </div>
 
-          <t t-foreach="props.items" t-as="item" t-key="item.title">
-              <div class="o_spotlight_item" t-on-click="item.action">
-                <div class="o_spotlight_item_title"><t t-esc="item.title"/></div>
-                <div class="o_spotlight_item_subtitle"><t t-esc="item.subtitle"/></div>
+          <t t-foreach="props.items" t-as="item" t-key="item.__index">
+            <div
+              class="o_spotlight_item"
+              t-att-class="{ 'o_spotlight_item_active': item.__index === props.activeIndex }"
+              t-att-data-index="item.__index"
+              t-on-click="() => item.action({ openInDialog: false })"
+            >
+              <div class="o_spotlight_item_title">
+                <t t-esc="item.title"/>
               </div>
-            </t>
-          </div> 
+              <div class="o_spotlight_item_subtitle">
+                <t t-esc="item.subtitle"/>
+              </div>
+            </div>
+          </t>
+        </div>
     </t>
 </templates>

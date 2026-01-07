@@ -35,14 +35,19 @@
             t-props="{
               title: section.section,
               icon: section.icon,
-              items: section.items
+              items: section.items,
+              activeIndex: state.activeIndex
             }" />
         </t>
       </div>
 
       <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted">
-        <span class="fw-bolder text-primary">TIP</span> — Press <kbd>Tab</kbd> to switch to Odoo
-        command palette </div>
+        <span class="fw-bolder text-primary">TIP</span>
+        — Press <kbd>Tab</kbd> to switch to Odoo
+        command palette <br/>
+        Press <kbd>↵</kbd> to open full screen <br/>
+        Press <kbd>⇧↵</kbd> to open in wizard
+      </div>
     </div>
   </Dialog>
 </t>

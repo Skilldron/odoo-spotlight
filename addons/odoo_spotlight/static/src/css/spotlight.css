@@ -84,6 +84,10 @@
     background: #f5f0f6;
 }
 
+.o_spotlight_item_active {
+    background: #f5f0f6;
+}
+
 .o_spotlight_item_title {
     font-size: 15px;
     color: #333;

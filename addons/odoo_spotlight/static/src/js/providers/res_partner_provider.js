@@ -24,12 +24,13 @@ export const ResPartnerSpotlightProvider =  {
     return partners.map((p) => ({
       title: p.name,
       subtitle: p.email || (p.is_company ? _t("Company") : _t("Contact")),
-      action: () =>
+      action: ({ openInDialog }) =>
         env.services.action.doAction({
           type: "ir.actions.act_window",
           res_model: "res.partner",
           res_id: p.id,
           views: [[false, "form"]],
+          target: openInDialog ? "new" : "current",
         }),
     }));
   },

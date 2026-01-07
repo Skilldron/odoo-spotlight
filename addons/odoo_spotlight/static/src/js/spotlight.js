@@ -26,17 +26,40 @@ export class SpotlightPalette extends Component {
   };
 
   setup() {
-    this.state = useState({ searchValue: "", results: [], isLoading: false });
+    this.state = useState({
+      searchValue: "",
+      results: [],
+      flatItems: [],
+      activeIndex: 0,
+      isLoading: false,
+    });
     this.commandService = useService("command");
     this.root = useRef("root");
     this.debounceSearch = debounce((value) => this.search(value), 10);
 
     useExternalListener(window, "mousedown", this.onWindowMouseDown);
     this.onKeyDown = (ev) => {
-      if (ev.key === "Tab") {
-        ev.preventDefault();
-        ev.stopPropagation();
-        this.switchCommandPalette(this.commandService);
+      switch (ev.key) {
+        case"Tab":
+          ev.preventDefault();
+          ev.stopPropagation();
+          this.switchCommandPalette(this.commandService);
+          break;
+
+        case "ArrowDown":
+          ev.preventDefault();
+          this.move(1);
+          break;
+
+        case "ArrowUp":
+          ev.preventDefault();
+          this.move(-1);
+          break;
+
+        case "Enter":
+          ev.preventDefault();
+          this.execute(ev.shiftKey);
+          break;
       }
     };
 
@@ -52,6 +75,39 @@ export class SpotlightPalette extends Component {
     onWillUnmount(() => {
       window.removeEventListener("keydown", this.onKeyDown, { capture: true });
     });
+  }
+
+  move(direction) {
+    const max = this.state.flatItems.length - 1;
+    if (max < 0) return;
+
+    let next = this.state.activeIndex + direction;
+
+    if (next < 0) next = max;
+    if (next > max) next = 0;
+
+    this.state.activeIndex = next;
+    this.scrollToActive();
+  }
+
+  scrollToActive() {
+    requestAnimationFrame(() => {
+      const el = this.root.el.querySelector(
+        `[data-index="${this.state.activeIndex}"]`
+      );
+      if (el) {
+        el.scrollIntoView({ block: "nearest" });
+      }
+    });
+  }
+
+  execute(openInDialog) {
+    const item = this.state.flatItems[this.state.activeIndex];
+    if (!item || !item.action) return;
+
+    item.action({openInDialog});
+
+    this.props.close();
   }
 
   async switchCommandPalette() {
@@ -77,24 +133,37 @@ export class SpotlightPalette extends Component {
 
   async search(searchValue) {
     this.state.isLoading = true;
+    this.state.activeIndex = 0;
+
     try {
       const providers = spotlightProviderRegistry
         .getAll()
         .sort((a, b) => (a.priority || 100) - (b.priority || 100));
 
       const results = [];
+      const flatItems = [];
+      let index = 0;
 
       for (const provider of providers) {
         const items = await provider.search(this.env, searchValue);
         if (items.length) {
+          const enrichedItems = items.map((item) => ({
+            ...item,
+            __index: index++,
+          }));
+
+          flatItems.push(...enrichedItems);
+
           results.push({
             section: provider.section,
             icon: provider.icon,
-            items,
+            items: enrichedItems,
           });
         }
       }
+
       this.state.results = results;
+      this.state.flatItems = flatItems;
     } finally {
       this.state.isLoading = false;
     }
@@ -103,9 +172,8 @@ export class SpotlightPalette extends Component {
   onSearchInput(ev) {
     const value = ev.target.value;
     this.state.searchValue = value;
-
-    this.results = this.debounceSearch(value).catch(() => {
-      this.results = [];
+    this.debounceSearch(value).catch(() => {
+      this.state.results = [];
     });
   }
 }

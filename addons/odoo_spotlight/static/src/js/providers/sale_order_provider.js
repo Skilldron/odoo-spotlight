@@ -27,12 +27,13 @@ export const SaleOrderSpotlightProvider = {
     return orders.map((o) => ({
       title: `${o.name} - ${o.partner_id[1]}`,
       subtitle: `€${o.amount_total} – ${_t(getSelection(o.state))}`,
-      action: () =>
+      action: ({ openInDialog }) =>
         env.services.action.doAction({
           type: "ir.actions.act_window",
           res_model: "sale.order",
           res_id: o.id,
           views: [[false, "form"]],
+          target: openInDialog ? "new" : "current",
         }),
     }));
   },
