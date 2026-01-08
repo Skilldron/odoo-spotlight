@@ -9,11 +9,21 @@
 }
 
 /* Search bar */
-.o_spotlight_search_wrapper {
-    position: relative;
-    padding: 12px;
+.o_spotlight_search_header {
     border-bottom: 1px solid #e4e4e4;
     background: #f9f9f9;
+    padding: 12px;
+}
+
+.o_spotlight_search_header .navigation_tip {
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.o_spotlight_search_wrapper {
+    position: relative;
 }
 
 .o_spotlight_search_icon {
