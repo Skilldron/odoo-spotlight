@@ -1,55 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<t t-name="odoo_spotlight.SpotlightPalette" owl="1">
 
-  <Dialog header="false"
-    footer="false"
-    size="'md'"
-    contentClass="'o_spotlight_dialog'">
+<templates xml:space="preserve">
+  <t t-name="odoo_spotlight.SpotlightPalette">
+    <Dialog header="false" footer="false" size="'md'" contentClass="'o_spotlight_dialog'">
+      <div t-ref="root">
+        <div class="o_spotlight_search_header">
+          <div class="o_spotlight_search_wrapper">
+            <i class="fa fa-search o_spotlight_search_icon"></i>
+            <input class="o_spotlight_search" t-att-value="state.searchValue" placeholder="Write to search related items..." t-ref="searchInput" t-on-input="onSearchInput" />
+          </div>
 
-    <div t-ref="root">
-      <div class="o_spotlight_search_header">
-        <div class="o_spotlight_search_wrapper">
-          <i class="fa fa-search o_spotlight_search_icon"></i>
-          <input class="o_spotlight_search"
-          t-att-value="state.searchValue"
-          placeholder="Write to search related items..."
-          t-ref="searchInput"
-          t-on-input="onSearchInput" />
+          <div class="text-muted navigation_tip">Press <kbd>↵</kbd> to open full screen  |  Press <kbd>⇧↵</kbd> to open in wizard</div>
         </div>
 
-        <div class="text-muted navigation_tip">Press <kbd>↵</kbd> to open full screen  |  Press <kbd>⇧↵</kbd> to open in wizard</div>
-      </div>
+        <div class="o_spotlight_results position-relative overflow-auto">
+          <i t-if="state.isLoading" title="Loading..." role="img" aria-label="Loading..." class="fa fa-spinner fa-spin" />
 
-      <div class="o_spotlight_results position-relative overflow-auto">
-        <i t-if="state.isLoading" title="Loading..." role="img" aria-label="Loading..."
-          class="fa fa-spinner fa-spin" />
+          <t t-if="!state.results.length and state.searchValue">
+            <div class="o_command_palette_listbox_empty px-4 py-3 fst-italic">No results</div>
+          </t>
 
-         <t t-if="!state.results.length and state.searchValue">
-          <div
-            class="o_command_palette_listbox_empty px-4 py-3 fst-italic">No results</div>
-        </t>
+          <t t-if="!state.searchValue">
+            <div class="o_command_palette_listbox_empty px-4 py-3 fst-italic">Type something to start searching</div>
+          </t>
 
-        <t t-if="!state.searchValue">
-          <div
-            class="o_command_palette_listbox_empty px-4 py-3 fst-italic">Type something to start searching</div>
-        </t>
-
-        <t t-foreach="state.results" t-as="section" t-key="section.section + section.icon">
-          <SpotlightSection
-            t-props="{
+          <t t-foreach="state.results" t-as="section" t-key="section.section + section.icon">
+            <SpotlightSection t-props="{
               title: section.section,
               icon: section.icon,
               items: section.items,
               activeIndex: state.activeIndex
             }" />
-        </t>
-      </div>
+          </t>
+        </div>
 
-      <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted">
-        <span class="fw-bolder text-primary">TIP</span>
+        <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted">
+          <span class="fw-bolder text-primary">TIP</span>
         — Press <kbd>Tab</kbd> to switch to Odoo
         command palette
+        </div>
       </div>
-    </div>
-  </Dialog>
-</t>
+    </Dialog>
+  </t>
+</templates>

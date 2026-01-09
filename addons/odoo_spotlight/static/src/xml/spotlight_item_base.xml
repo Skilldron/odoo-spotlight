@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.ItemBase">
+        <div class="o_spotlight_item" t-att-class="{ 'o_spotlight_item_active': props.item.__index === props.activeIndex }" t-att-data-index="props.item.__index" t-on-click="onClick">
+            <t t-call="{{props.ItemContentTemplate}}" t-props="{ item: props.item }"/>
+        </div>
+    </t>
+</templates>

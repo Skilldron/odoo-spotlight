@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="odoo_spotlight.ResPartnerItemContent">
+        <div class="o_spotlight_item_body d-flex align-items-center gap-3">
+
+            <img t-att-src="'/web/image/res.partner/' + props.item.id + '/image_128'" class="o_spotlight_avatar rounded-circle flex-shrink-0" alt="Avatar" />
+
+            <div class="o_spotlight_item_content flex-grow-1 min-w-0">
+                <div class="o_spotlight_item_title d-flex align-items-center gap-2">
+                    <span class="text-truncate fw-semibold">
+                        <t t-esc="props.item.name"/>
+                        <span t-if="props.item.is_company" class="px-2 text-info-emphasis">
+                            <i class="fa fa-building me-1"/>
+                        </span>
+                    </span>
+                </div>
+
+                <div class="o_spotlight_item_meta text-muted small">
+                    <t t-if="props.item.email">
+                        <i class="fa fa-envelope me-1"/>
+                        <t t-esc="props.item.email"/>
+                    </t>
+                </div>
+                <div class="o_spotlight_item_meta text-muted small">
+                    <t t-if="props.item.phone">
+                        <i class="fa fa-phone me-1"/>
+                        <t t-esc="props.item.phone"/>
+                    </t>
+
+                    <t t-if="props.item.mobile">
+                        <span class="mx-2">•</span>
+                        <i class="fa fa-mobile me-1"/>
+                        <t t-esc="props.item.mobile"/>
+                    </t>
+                </div>
+
+                <div t-if="props.item.city or props.item.country" class="o_spotlight_item_subtitle text-muted small">
+                    <i class="fa fa-map-marker me-1"/>
+                    <t t-if="props.item.city">
+                        <t t-esc="props.item.city"/>
+                    </t>
+                    <t t-if="props.item.city and props.item.country">, </t>
+                    <t t-if="props.item.country">
+                        <t t-esc="props.item.country"/>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

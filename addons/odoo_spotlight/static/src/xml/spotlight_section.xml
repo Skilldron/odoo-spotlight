@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
+  <t t-name="odoo_spotlight.SpotlightSection">
+    <div class="o_spotlight_section">
+      <div class="o_spotlight_section_header">
+        <img t-attf-src="{{props.icon}}" class="o_spotlight_section_icon" />
+        <span class="o_spotlight_section_title">
+          <t t-esc="props.title"/>
+        </span>
+      </div>
 
-    <t t-name="odoo_spotlight.SpotlightSection">
-         <div class="o_spotlight_section">
-            <div class="o_spotlight_section_header">
-              <img t-attf-src="{{props.icon}}"
-                class="o_spotlight_section_icon" />
-              <span class="o_spotlight_section_title"><t t-esc="props.title"/></span>
-            </div>
-
-          <t t-foreach="props.items" t-as="item" t-key="item.__index">
-            <div
-              class="o_spotlight_item"
-              t-att-class="{ 'o_spotlight_item_active': item.__index === props.activeIndex }"
-              t-att-data-index="item.__index"
-              t-on-click="() => item.action({ openInDialog: false })"
-            >
-              <div class="o_spotlight_item_title">
-                <t t-esc="item.title"/>
-              </div>
-              <div class="o_spotlight_item_subtitle">
-                <t t-esc="item.subtitle"/>
-              </div>
-            </div>
-          </t>
-        </div>
-    </t>
+      <t t-foreach="props.items" t-as="item" t-key="item.__index">
+        <SpotlightItemBase t-props="{
+                item,
+                activeIndex: props.activeIndex,
+                ItemContentTemplate: item.__provider
+              }" />
+      </t>
+    </div>
+  </t>
 </templates>

@@ -98,13 +98,57 @@
     background: #f5f0f6;
 }
 
-.o_spotlight_item_title {
-    font-size: 15px;
-    color: #333;
-    font-weight: 500;
+.o_spotlight_avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
+.o_spotlight_item_body {
+  padding: 6px 8px;
+}
+
+.o_spotlight_item_title {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.o_spotlight_item_meta,
 .o_spotlight_item_subtitle {
-    font-size: 13px;
-    color: #777;
+  line-height: 1.2;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Sales items */
+.o_sale_state_draft {
+  background: transparent;
+  border: 1px solid #adb5bd;
+  color: #495057;
+}
+
+.o_sale_state_sent {
+  background: transparent;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+}
+
+.o_sale_state_sale {
+  background: transparent;
+  border: 1px solid #198754;
+  color: #198754;
+}
+
+.o_sale_state_done {
+  background: transparent;
+  border: 1px solid #0f5132;
+  color: #0f5132;
+}
+
+.o_sale_state_cancel {
+  background: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
 }

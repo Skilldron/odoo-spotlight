@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.SaleOrderItemContent">
+        <div class="o_spotlight_item_body d-flex align-items-center gap-3">
+            <img
+            class="o_spotlight_avatar rounded-circle flex-shrink-0"
+            t-att-src="'/web/image/res.users/' + props.item.id_salesperson + '/image_128'"
+            alt="Partner"
+            />
+
+            <div class="o_spotlight_item_main flex-grow-1 min-w-0">
+                <div class="o_spotlight_item_title d-flex align-items-center gap-2">
+                    <span class="fw-semibold text-truncate">
+                        <t t-esc="props.item.name"/>
+                    </span>
+                    <span class="text-muted">•</span>
+                    <span class="text-muted text-truncate">
+                        <t t-esc="props.item.partner"/>
+                    </span>
+                </div>
+
+                <div class="o_spotlight_item_subtitle small text-muted">
+                    <t t-esc="props.item.salesperson"/>
+                </div>
+            </div>
+
+            <div class="o_spotlight_item_right text-end flex-shrink-0">
+                <span t-att-class="'badge o_sale_state_' + props.item.state">
+                    <t t-esc="props.item.stateLabel"/>
+                </span>
+                <div class="fw-semibold mt-1">
+                    <t t-esc="props.item.amount"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
