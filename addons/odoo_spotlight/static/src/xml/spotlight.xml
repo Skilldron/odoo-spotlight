@@ -24,9 +24,9 @@
             <div class="o_command_palette_listbox_empty px-4 py-3 fst-italic">Type something to start searching</div>
           </t>
 
-          <t t-foreach="state.results" t-as="section" t-key="section.section + section.icon">
+          <t t-foreach="state.results" t-as="section" t-key="section.label + section.icon">
             <SpotlightSection t-props="{
-              title: section.section,
+              title: section.label,
               icon: section.icon,
               items: section.items,
               activeIndex: state.activeIndex

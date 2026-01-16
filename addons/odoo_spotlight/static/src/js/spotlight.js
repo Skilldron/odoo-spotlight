@@ -14,7 +14,6 @@ import {
   onWillUnmount,
   useState,
 } from "@odoo/owl";
-import { spotlightProviderRegistry } from "./spotlight_provider_registry";
 
 export class SpotlightPalette extends Component {
   static template = "odoo_spotlight.SpotlightPalette";
@@ -34,13 +33,14 @@ export class SpotlightPalette extends Component {
       isLoading: false,
     });
     this.commandService = useService("command");
+    this.spotlightService = useService("spotlight");
     this.root = useRef("root");
     this.debounceSearch = debounce((value) => this.search(value), 10);
 
     useExternalListener(window, "mousedown", this.onWindowMouseDown);
     this.onKeyDown = (ev) => {
       switch (ev.key) {
-        case"Tab":
+        case "Tab":
           ev.preventDefault();
           ev.stopPropagation();
           this.switchCommandPalette(this.commandService);
@@ -105,7 +105,7 @@ export class SpotlightPalette extends Component {
     const item = this.state.flatItems[this.state.activeIndex];
     if (!item || !item.action) return;
 
-    item.action({openInDialog});
+    item.action({ openInDialog });
 
     this.props.close();
   }
@@ -136,16 +136,14 @@ export class SpotlightPalette extends Component {
     this.state.activeIndex = 0;
 
     try {
-      const providers = spotlightProviderRegistry
-        .getAll()
-        .sort((a, b) => (a.priority || 100) - (b.priority || 100));
+      const providers = await this.spotlightService.loadProviders();
 
       const results = [];
       const flatItems = [];
       let index = 0;
 
       for (const provider of providers) {
-        const items = await provider.search(this.env, searchValue);
+        const items = await provider.search(searchValue, 5);
         if (items.length) {
           const enrichedItems = items.map((item) => ({
             ...item,
@@ -155,7 +153,7 @@ export class SpotlightPalette extends Component {
           flatItems.push(...enrichedItems);
 
           results.push({
-            section: provider.section,
+            label: provider.label,
             icon: provider.icon,
             items: enrichedItems,
           });
