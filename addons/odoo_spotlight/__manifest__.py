@@ -7,7 +7,7 @@
     'description': """
         This simple module help you find what you're looking for 'in a blink of an eye' :D
     """,
-    'data': [],
+    'data': ["views/res_user_view.xml"],
     'assets': {
         'web.assets_backend': [
             'odoo_spotlight/static/src/**/*'
@@ -16,5 +16,5 @@
     },
     'installable': True,
     'application': True,
-    'license': 'LGPL-3'
+    'license': 'OPL-1'
 }

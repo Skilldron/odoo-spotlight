@@ -143,7 +143,7 @@ export class SpotlightPalette extends Component {
       let index = 0;
 
       for (const provider of providers) {
-        const items = await provider.search(searchValue, 5);
+        const items = await provider.search(searchValue);
         if (items.length) {
           const enrichedItems = items.map((item) => ({
             ...item,

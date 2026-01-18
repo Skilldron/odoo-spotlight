@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.SpotlightProviderSelector">
+        <div class="o_spotlight_provider_selector">
+            <t t-foreach="providersStates" t-as="provider" t-key="provider.id">
+                <label class="d-flex align-items-center gap-2 mb-1">
+                    <img t-if="provider.icon" t-att-src="provider.icon" class="o_spotlight_icon"/>
+
+                    <CheckBox
+                        id="checkbox"
+                        value="provider['activated']"
+                        onChange="(ev) => this.onChange(provider.id, ev)"
+                    >
+                        <t t-esc="provider['label']" />
+                    </CheckBox>
+                </label>
+            </t>
+        </div>
+    </t>
+</templates>
