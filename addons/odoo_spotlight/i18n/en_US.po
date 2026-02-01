@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_spotlight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20251222\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-18 09:57+0000\n"
+"PO-Revision-Date: 2026-01-18 09:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/providers/res_partner_item.xml:0
+msgid "Avatar"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model:ir.model,name:odoo_spotlight.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "Loading..."
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "No results"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/providers/sale_order_item.xml:0
+msgid "Partner"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/js/providers/res_partner/res_partner_provider.js:0
+msgid "Partners"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "Press"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/js/providers/sale_order/sale_order_provider.js:0
+msgid "Sales"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model:ir.model.fields,field_description:odoo_spotlight.field_res_users__spotlight_disabled_providers
+msgid "Spotlight Providers"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model_terms:ir.ui.view,arch_db:odoo_spotlight.view_users_form_simple_modif_inherit_odoo_spotlight
+msgid "Spotlight Settings"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model:ir.model,name:odoo_spotlight.model_spotlight_access
+msgid "Spotlight access checker"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model:ir.model.fields,field_description:odoo_spotlight.field_res_users__spotlight_limit
+msgid "Spotlight result limit"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "TIP"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "Tab"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "Type something to start searching"
+msgstr ""
+
+#. module: odoo_spotlight
+#: model:ir.model,name:odoo_spotlight.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "Type a name, email, or reference..."
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "to open full screen  |  Press"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "to open in wizard"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid ""
+"to switch to Odoo\n"
+"        command palette"
+msgstr ""
+
+#. module: odoo_spotlight
+#. odoo-javascript
+#: code:addons/odoo_spotlight/static/src/xml/spotlight.xml:0
+msgid "— Press"
+msgstr ""

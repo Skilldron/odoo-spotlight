@@ -7,7 +7,7 @@
         <div class="o_spotlight_search_header">
           <div class="o_spotlight_search_wrapper">
             <i class="fa fa-search o_spotlight_search_icon"></i>
-            <input class="o_spotlight_search" t-att-value="state.searchValue" placeholder="Write to search related items..." t-ref="searchInput" t-on-input="onSearchInput" />
+            <input class="o_spotlight_search" t-att-value="state.searchValue" placeholder="Type a name, email, or reference..." t-ref="searchInput" t-on-input="onSearchInput" />
           </div>
 
           <div class="text-muted navigation_tip">Press <kbd>↵</kbd> to open full screen  |  Press <kbd>⇧↵</kbd> to open in wizard</div>
