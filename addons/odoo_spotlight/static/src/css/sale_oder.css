@@ -1,0 +1,30 @@
+/* Sales items */
+.o_sale_state_draft {
+    background: transparent;
+    border: 1px solid #adb5bd;
+    color: #495057;
+}
+
+.o_sale_state_sent {
+    background: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+
+.o_sale_state_sale {
+    background: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+}
+
+.o_sale_state_done {
+    background: transparent;
+    border: 1px solid #0f5132;
+    color: #0f5132;
+}
+
+.o_sale_state_cancel {
+    background: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}

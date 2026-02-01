@@ -10,7 +10,7 @@
             <input class="o_spotlight_search" t-att-value="state.searchValue" placeholder="Type a name, email, or reference..." t-ref="searchInput" t-on-input="onSearchInput" />
           </div>
 
-          <div class="text-muted navigation_tip">Press <kbd>↵</kbd> to open full screen  |  Press <kbd>⇧↵</kbd> to open in wizard</div>
+          <div class="text-muted navigation_tip">Press <kbd class="mx-1">↵</kbd> to open full screen  |  Press <kbd class="mx-1">⇧↵</kbd> to open in wizard</div>
         </div>
 
         <div class="o_spotlight_results position-relative overflow-auto">

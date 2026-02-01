@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-name="odoo_spotlight.SaleOrderItemContent">
+    <t t-name="odoo_spotlight.AccountItemContent">
         <div class="o_spotlight_item_body d-flex align-items-center gap-3">
             <img
             class="o_spotlight_avatar rounded-circle flex-shrink-0"
-            t-att-src="'/web/image/res.users/' + props.item.id_salesperson + '/image_128'"
-            alt="Partner"
+            t-att-src="'/web/image/res.partner/' + props.item.idCustomer + '/image_128'"
+            alt="Customer"
             />
 
             <div class="o_spotlight_item_main flex-grow-1 min-w-0">
@@ -15,8 +15,11 @@
                     </span>
                     <span class="text-muted">•</span>
                     <span class="text-muted text-truncate">
-                        <t t-esc="props.item.partner"/>
+                        <t t-esc="props.item.customer"/>
                     </span>
+                </div>
+                <div>
+                    <t t-esc="props.item.invoiceDate" />
                 </div>
 
                 <div class="o_spotlight_item_subtitle small text-muted">
@@ -25,11 +28,11 @@
             </div>
 
             <div class="o_spotlight_item_right text-end flex-shrink-0">
-                <span t-att-class="'badge o_sale_state_' + props.item.state">
-                    <t t-esc="props.item.stateLabel"/>
+                <span t-att-class="'badge o_account_payment_state_' + props.item.paymentState">
+                    <t t-esc="props.item.paymentStateLabel"/>
                 </span>
                 <div class="fw-semibold mt-1">
-                    <t t-esc="props.item.amount"/>
+                    <t t-esc="props.item.amountTotal"/>
                     <span class="px-1 small text-muted">incl. VAT</span>
                 </div>
             </div>

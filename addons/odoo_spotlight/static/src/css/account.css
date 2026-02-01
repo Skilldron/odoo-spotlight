@@ -1,0 +1,57 @@
+/* ============================
+   ACCOUNT MOVE PAYMENT STATES
+   ============================ */
+
+.o_account_payment_state {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 999px;
+    line-height: 1.2;
+    white-space: nowrap;
+    background: transparent;
+}
+
+/* Not paid / Draft */
+.o_account_payment_state_not_paid {
+    border: 1px solid #adb5bd;
+    color: #495057;
+}
+
+/* In payment */
+.o_account_payment_state_in_payment {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+
+/* Paid */
+.o_account_payment_state_paid {
+    border: 1px solid #198754;
+    color: #198754;
+}
+
+/* Partial payment */
+.o_account_payment_state_partial {
+    border: 1px solid #146c43;
+    color: #146c43;
+}
+
+/* Reversed / Refunded */
+.o_account_payment_state_reversed {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+/* Blocked / On hold */
+.o_account_payment_state_blocked {
+    border: 1px solid #fd7e14;
+    color: #fd7e14;
+}
+
+/* Legacy invoicing */
+.o_account_payment_state_invoicing_legacy {
+    border: 1px solid #6f42c1;
+    color: #6f42c1;
+}

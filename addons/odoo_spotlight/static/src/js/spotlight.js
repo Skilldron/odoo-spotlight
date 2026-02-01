@@ -93,7 +93,7 @@ export class SpotlightPalette extends Component {
   scrollToActive() {
     requestAnimationFrame(() => {
       const el = this.root.el.querySelector(
-        `[data-index="${this.state.activeIndex}"]`
+        `[data-index="${this.state.activeIndex}"]`,
       );
       if (el) {
         el.scrollIntoView({ block: "nearest" });
@@ -208,7 +208,7 @@ export const SpotlightHotkey = {
               onClose();
             }
           },
-        }
+        },
       );
     }
   },

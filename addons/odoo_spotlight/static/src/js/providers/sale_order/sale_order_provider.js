@@ -65,5 +65,5 @@ export const SaleOrderSpotlightProvider = {
 
 spotlightSectionsRegistry.add(
   SaleOrderSpotlightProvider.id,
-  SaleOrderSpotlightProvider
+  SaleOrderSpotlightProvider,
 );
