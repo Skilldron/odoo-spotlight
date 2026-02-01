@@ -35,7 +35,7 @@ export class SpotlightPalette extends Component {
     this.commandService = useService("command");
     this.spotlightService = useService("spotlight");
     this.root = useRef("root");
-    this.debounceSearch = debounce((value) => this.search(value), 10);
+    this.debounceSearch = debounce((value) => this.search(value), 250);
 
     useExternalListener(window, "mousedown", this.onWindowMouseDown);
     this.onKeyDown = (ev) => {
