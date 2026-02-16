@@ -16,6 +16,7 @@ export const AccountSpotlightProvider = {
 
   fields: [
     "name",
+    "state",
     "invoice_date",
     "partner_id",
     "status_in_payment",
@@ -52,6 +53,7 @@ export const AccountSpotlightProvider = {
       amountTotal: formatMonetary(record.amount_total, {
         currencyId: record.currency_id[0],
       }),
+      state: record.state,
     };
   },
 
@@ -63,6 +65,42 @@ export const AccountSpotlightProvider = {
       views: [[false, "form"]],
       target: openInDialog ? "new" : "current",
     });
+  },
+
+  getQuickActions({ env, record, model, doAction }) {
+    const actions = [];
+
+    if (record.state === "draft") {
+      actions.push({
+        id: "validate_invoice",
+        label: _t("Validate invoice"),
+        icon: "fa-check",
+        isDestructive: false,
+        async execute() {
+          await env.services.orm.call(model, "action_post", [[record.id]]);
+        },
+      });
+    }
+
+    if (record.partner_id && record.partner_id[0]) {
+      actions.push({
+        id: "open_customer",
+        label: _t("Open customer"),
+        icon: "fa-user",
+        isDestructive: false,
+        async execute() {
+          await doAction({
+            type: "ir.actions.act_window",
+            res_model: "res.partner",
+            res_id: record.partner_id[0],
+            views: [[false, "form"]],
+            target: "current",
+          });
+        },
+      });
+    }
+
+    return actions;
   },
 };
 

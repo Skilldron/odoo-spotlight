@@ -5,6 +5,7 @@ import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";
 import { SpotlightSection } from "./spotlight_section";
 import { debounce } from "@web/core/utils/timing";
+import { _t } from "@web/core/l10n/translation";
 import {
   useExternalListener,
   Component,
@@ -31,6 +32,8 @@ export class SpotlightPalette extends Component {
       flatItems: [],
       activeIndex: 0,
       isLoading: false,
+      isQuickActionsOpen: false,
+      activeQuickActionIndex: 0,
     });
     this.commandService = useService("command");
     this.spotlightService = useService("spotlight");
@@ -39,6 +42,36 @@ export class SpotlightPalette extends Component {
 
     useExternalListener(window, "mousedown", this.onWindowMouseDown);
     this.onKeyDown = (ev) => {
+      // Toggle quick actions with Ctrl+. (or Cmd+. on macOS)
+      const isCtrlOrMeta = ev.ctrlKey || ev.metaKey;
+      if (isCtrlOrMeta && ev.key === ";") {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (this.state.isQuickActionsOpen) {
+          this.closeQuickActions();
+        } else {
+          this.openQuickActions();
+        }
+      }
+
+      if (this.state.isQuickActionsOpen) {
+        switch (ev.key) {
+          case "ArrowDown":
+            ev.preventDefault();
+            this.moveQuickAction(1);
+            break;
+          case "ArrowUp":
+            ev.preventDefault();
+            this.moveQuickAction(-1);
+            break;
+          case "Enter":
+            ev.preventDefault();
+            this.executeActiveQuickAction();
+            break;
+        }
+        return;
+      }
+
       switch (ev.key) {
         case "Tab":
           ev.preventDefault();
@@ -75,6 +108,76 @@ export class SpotlightPalette extends Component {
     onWillUnmount(() => {
       window.removeEventListener("keydown", this.onKeyDown, { capture: true });
     });
+  }
+
+  get activeItem() {
+    return this.state.flatItems[this.state.activeIndex];
+  }
+
+  getActiveQuickActions() {
+    const item = this.activeItem;
+    if (!item || !item.quickActions) {
+      return [];
+    }
+    return [...item.quickActions.provider, ...item.quickActions.common];
+  }
+
+  openQuickActions() {
+    const actions = this.getActiveQuickActions();
+    if (!actions.length) {
+      return;
+    }
+    this.state.isQuickActionsOpen = true;
+    this.state.activeQuickActionIndex = 0;
+  }
+
+  closeQuickActions() {
+    this.state.isQuickActionsOpen = false;
+  }
+
+  toggleQuickActions() {
+    if (this.state.isQuickActionsOpen) {
+      this.closeQuickActions();
+    } else {
+      this.openQuickActions();
+    }
+  }
+
+  moveQuickAction(direction) {
+    const actions = this.getActiveQuickActions();
+    const max = actions.length - 1;
+    if (max < 0) {
+      return;
+    }
+    let next = this.state.activeQuickActionIndex + direction;
+    if (next < 0) {
+      next = max;
+    }
+    if (next > max) {
+      next = 0;
+    }
+    this.state.activeQuickActionIndex = next;
+  }
+
+  async executeActiveQuickAction() {
+    const actions = this.getActiveQuickActions();
+    const action = actions[this.state.activeQuickActionIndex];
+    if (!action || !action.execute) {
+      return;
+    }
+    await action.execute();
+    this.closeQuickActions();
+    if (this.state.searchValue) {
+      // Refresh results to reflect potential data changes (delete, archive, ...).
+      await this.search(this.state.searchValue);
+    }
+  }
+
+  onQuickActionClick(ev, index) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    this.state.activeQuickActionIndex = index;
+    this.executeActiveQuickAction();
   }
 
   move(direction) {
