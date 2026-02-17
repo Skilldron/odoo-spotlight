@@ -40,12 +40,13 @@
             command palette
           </div>
 
-              <SpotlightQuickActions
-                t-props="{
-                  item: activeItem,
-                  onAfterExecute: handleAfterQuickAction
-                }"
-              />
+          <SpotlightQuickActions
+            t-props="{
+              item: activeItem,
+              onAfterExecute: handleAfterQuickAction,
+              bus: props.bus
+            }"
+          />
         </div>
       </div>
     </Dialog>

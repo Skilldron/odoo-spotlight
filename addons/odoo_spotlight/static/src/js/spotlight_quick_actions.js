@@ -1,12 +1,20 @@
 /** @odoo-module **/
 
-import { Component, useState, onMounted, onWillUnmount } from "@odoo/owl";
+import {
+  Component,
+  useState,
+  onMounted,
+  onWillUnmount,
+  EventBus,
+} from "@odoo/owl";
+import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
 
 export class SpotlightQuickActions extends Component {
   static template = "odoo_spotlight.SpotlightQuickActions";
   static props = {
     item: { type: Object, optional: true },
     onAfterExecute: { type: Function, optional: true },
+    bus: { type: EventBus, optional: true },
   };
 
   setup() {
@@ -38,10 +46,6 @@ export class SpotlightQuickActions extends Component {
           ev.preventDefault();
           this.executeActive();
           break;
-        case "Escape":
-          ev.preventDefault();
-          this.props.onClose();
-          break;
       }
     };
 
@@ -52,14 +56,6 @@ export class SpotlightQuickActions extends Component {
     onWillUnmount(() => {
       window.removeEventListener("keydown", this.onKeyDown);
     });
-  }
-
-  toggleQuickActions() {
-    if (!this.props.item || !this.props.item.quickActions) {
-      return;
-    }
-    this.state.isQuickActionsOpen = !this.state.isQuickActionsOpen;
-    this.state.activeIndex = 0;
   }
 
   get structuredActions() {
@@ -76,7 +72,35 @@ export class SpotlightQuickActions extends Component {
     ];
   }
 
+  toggleQuickActions() {
+    if (!this.props.item || !this.props.item.quickActions) {
+      return;
+    }
+    this.state.isQuickActionsOpen = !this.state.isQuickActionsOpen;
+    this.state.activeIndex = 0;
+    this._sendBusEvent("quick_action_menu_state", {
+      isOpen: this.state.isQuickActionsOpen,
+    });
+  }
+
+  closeQuickActions() {
+    if (this.state.isQuickActionsOpen) {
+      this.state.isQuickActionsOpen = false;
+    }
+    this._sendBusEvent("quick_action_menu_state", { isOpen: false });
+  }
+
+  _sendBusEvent(name, payload) {
+    if (this.props.bus) {
+      this.props.bus.trigger(name, payload);
+    }
+  }
+
   move(direction) {
+    if (!this.state.isQuickActionsOpen) {
+      return;
+    }
+
     const max = this.flatActions.length - 1;
     if (max < 0) return;
 
@@ -98,7 +122,7 @@ export class SpotlightQuickActions extends Component {
       await this.props.onAfterExecute();
     }
 
-    this.props.onClose();
+    this.closeQuickActions();
   }
 
   async onClick(ev, qa) {

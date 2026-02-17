@@ -37,11 +37,31 @@ export class SpotlightPalette extends Component {
       flatItems: [],
       activeIndex: 0,
       isLoading: false,
+      isQuickActionsOpen: false,
     });
     this.commandService = useService("command");
     this.spotlightService = useService("spotlight");
     this.root = useRef("root");
     this.debounceSearch = debounce((value) => this.search(value), 250);
+
+    // Research after quick action execution to update the list
+    // May be optimized by only updating the concerned item instead of re-searching everything
+    this.handleAfterQuickAction = async () => {
+      if (this.state.searchValue) {
+        await this.search(this.state.searchValue);
+      }
+    };
+
+    // Listen to quick action menu state changes to adapt the behavior of the palette (e.g. keyboard navigation)
+    if (this.props.bus) {
+      this._onQuickActionMenuState = ({ detail }) => {
+        this.state.isQuickActionsOpen = !!(detail && detail.isOpen);
+      };
+      this.props.bus.addEventListener(
+        "quick_action_menu_state",
+        this._onQuickActionMenuState,
+      );
+    }
 
     useExternalListener(window, "mousedown", this.onWindowMouseDown);
     this.onKeyDown = (ev) => {
@@ -64,7 +84,7 @@ export class SpotlightPalette extends Component {
 
         case "Enter":
           ev.preventDefault();
-          this.execute(ev.shiftKey);
+          this.openRecord(ev.shiftKey);
           break;
       }
     };
@@ -80,20 +100,25 @@ export class SpotlightPalette extends Component {
 
     onWillUnmount(() => {
       window.removeEventListener("keydown", this.onKeyDown, { capture: true });
+      if (this.props.bus && this._onQuickActionMenuState) {
+        this.props.bus.removeEventListener(
+          "quick_action_menu_state",
+          this._onQuickActionMenuState,
+        );
+      }
     });
-  }
-
-  async handleAfterQuickAction() {
-    if (this.state.searchValue) {
-      await this.search(this.state.searchValue);
-    }
   }
 
   get activeItem() {
     return this.state.flatItems[this.state.activeIndex];
   }
 
+  // Selection management (moving up/down the list)
   move(direction) {
+    if (this.state.isQuickActionsOpen) {
+      return;
+    }
+
     const max = this.state.flatItems.length - 1;
     if (max < 0) return;
 
@@ -117,7 +142,11 @@ export class SpotlightPalette extends Component {
     });
   }
 
-  execute(openInDialog) {
+  openRecord(openInDialog) {
+    if (this.state.isQuickActionsOpen) {
+      return;
+    }
+
     const item = this.state.flatItems[this.state.activeIndex];
     if (!item || !item.action) return;
 
