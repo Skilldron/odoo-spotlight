@@ -39,74 +39,13 @@
             — Press <kbd>Tab</kbd> to switch to Odoo
             command palette
           </div>
-          <div class="o_spotlight_quick_actions_container">
-            <button
-              type="button"
-              class="btn btn-sm o_spotlight_quick_actions_button"
-              t-att-disabled="!getActiveQuickActions().length"
-              t-on-click="toggleQuickActions"
-            >
-              <i class="fa fa-bolt me-1" />
-              <span>Actions <kbd>Ctrl + ;</kbd> </span> 
-            </button>
-            <t t-if="state.isQuickActionsOpen">
-              <div class="o_spotlight_quick_actions_panel bg-white px-3 py-2">
-                <div class="o_spotlight_quick_actions_header text-muted mb-1">
-                  <span class="fw-bolder">Quick actions</span>
-                  <t t-if="activeItem">
-                    <span class="mx-1">·</span>
-                    <span class="o_spotlight_quick_actions_item_label">
-                      <t t-esc="activeItem.name or activeItem.display_name or activeItem.email" />
-                    </span>
-                  </t>
-                </div>
-                <ul class="list-unstyled mb-0 py-2 o_spotlight_quick_actions_list">
-                  <t t-set="item" t-value="activeItem"/>
-                  <t t-set="qaStruct" t-value="item and item.quickActions"/>
 
-                  <t t-if="qaStruct and qaStruct.provider.length">
-                    <t t-foreach="qaStruct.provider" t-as="qa" t-key="qa.id">
-                      <li
-                        t-att-class="{
-                          'o_spotlight_quick_actions_item': true,
-                          'active': getActiveQuickActions()[state.activeQuickActionIndex] === qa,
-                          'o_spotlight_quick_actions_item_destructive': qa.isDestructive
-                        }"
-                        t-on-click="(ev) => onQuickActionClick(ev, getActiveQuickActions().indexOf(qa))"
-                      >
-                        <span class="d-flex align-items-center px-2">
-                          <i t-if="qa.icon" t-att-class="'fa ' + qa.icon + ' me-2'" />
-                          <span><t t-esc="qa.label" /></span>
-                        </span>
-                      </li>
-                    </t>
-
-                    <t t-if="qaStruct.common.length">
-                      <li class="o_spotlight_quick_actions_separator"></li>
-                    </t>
-                  </t>
-
-                  <t t-if="qaStruct">
-                    <t t-foreach="qaStruct.common" t-as="qa" t-key="qa.id">
-                      <li
-                        t-att-class="{
-                          'o_spotlight_quick_actions_item': true,
-                          'active': getActiveQuickActions()[state.activeQuickActionIndex] === qa,
-                          'o_spotlight_quick_actions_item_destructive': qa.isDestructive
-                        }"
-                        t-on-click="(ev) => onQuickActionClick(ev, getActiveQuickActions().indexOf(qa))"
-                      >
-                        <span class="d-flex align-items-center px-2">
-                          <i t-if="qa.icon" t-att-class="'fa ' + qa.icon + ' me-2'" />
-                          <span><t t-esc="qa.label" /></span>
-                        </span>
-                      </li>
-                    </t>
-                  </t>
-                </ul>
-              </div>
-            </t>
-          </div>
+              <SpotlightQuickActions
+                t-props="{
+                  item: activeItem,
+                  onAfterExecute: handleAfterQuickAction
+                }"
+              />
         </div>
       </div>
     </Dialog>

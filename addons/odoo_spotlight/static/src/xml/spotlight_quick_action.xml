@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.SpotlightQuickActions">
+        <div class="o_spotlight_quick_actions_container">
+            <button
+              type="button"
+              class="btn btn-sm o_spotlight_quick_actions_button"
+              t-att-disabled="!flatActions.length"
+              t-on-click="toggleQuickActions"
+            >
+              <i class="fa fa-bolt me-1" />
+              <span>Actions <kbd>Ctrl + ;</kbd> </span> 
+            </button>
+
+            <t t-if="state.isQuickActionsOpen">
+            <div class="o_spotlight_quick_actions_panel bg-white px-3 py-2">
+
+                <div class="o_spotlight_quick_actions_header text-muted mb-1">
+                <span class="fw-bolder">Quick actions</span>
+                    <t t-if="props.item">
+                        <span class="mx-1">·</span>
+                        <span>
+                        <t t-esc="props.item.name or props.item.display_name or props.item.email"/>
+                        </span>
+                    </t>
+                </div>
+
+                <ul class="list-unstyled mb-0 py-2">
+
+                <t t-if="structuredActions.provider.length">
+                    <t t-foreach="structuredActions.provider" t-as="qa" t-key="qa.id">
+                    <li
+                        t-att-class="{
+                        'o_spotlight_quick_actions_item': true,
+                        'active': isActive(qa),
+                        'o_spotlight_quick_actions_item_destructive': qa.isDestructive
+                        }"
+                        t-on-click="(ev) => onClick(ev, qa)"
+                    >
+                        <span class="d-flex align-items-center px-2">
+                        <i t-if="qa.icon" t-att-class="'fa ' + qa.icon + ' me-2'" />
+                        <span><t t-esc="qa.label" /></span>
+                        </span>
+                    </li>
+                    </t>
+
+                    <t t-if="structuredActions.common.length">
+                    <li class="o_spotlight_quick_actions_separator"></li>
+                    </t>
+                </t>
+
+                <t t-foreach="structuredActions.common" t-as="qa" t-key="qa.id">
+                    <li
+                    t-att-class="{
+                        'o_spotlight_quick_actions_item': true,
+                        'active': isActive(qa),
+                        'o_spotlight_quick_actions_item_destructive': qa.isDestructive
+                    }"
+                    t-on-click="(ev) => onClick(ev, qa)"
+                    >
+                    <span class="d-flex align-items-center px-2">
+                        <i t-if="qa.icon" t-att-class="'fa ' + qa.icon + ' me-2'" />
+                        <span><t t-esc="qa.label" /></span>
+                    </span>
+                    </li>
+                </t>
+
+                </ul>
+            </div>
+            </t>
+        </div>
+    </t>
+</templates>
