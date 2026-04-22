@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: ./Dockerfile
     container_name: odoo-spotlight
+    stdin_open: true
+    tty: true
     depends_on:
       - db
     ports:

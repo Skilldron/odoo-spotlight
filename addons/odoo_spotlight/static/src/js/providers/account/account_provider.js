@@ -72,8 +72,8 @@ export const AccountSpotlightProvider = {
 
     if (record.state === "draft") {
       actions.push({
-        id: "validate_invoice",
-        label: _t("Validate invoice"),
+        id: "confirm_invoice",
+        label: _t("Confirm invoice"),
         icon: "fa-check",
         isDestructive: false,
         async execute() {

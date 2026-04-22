@@ -1,0 +1,38 @@
+<svg width="1280" height="620" viewBox="0 0 1280 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="620" rx="24" fill="#F8F9FD"/>
+  <rect x="42" y="36" width="1196" height="548" rx="20" fill="#FFFFFF" stroke="#E5E8F1"/>
+
+  <rect x="76" y="74" width="540" height="472" rx="14" fill="#10141F"/>
+  <rect x="76" y="74" width="540" height="42" rx="14" fill="#1A2030"/>
+  <circle cx="104" cy="95" r="6" fill="#EB6A6A"/>
+  <circle cx="124" cy="95" r="6" fill="#F0C75B"/>
+  <circle cx="144" cy="95" r="6" fill="#67C678"/>
+
+  <rect x="100" y="142" width="176" height="12" rx="6" fill="#8A95B4"/>
+  <rect x="100" y="168" width="286" height="12" rx="6" fill="#D7A6C9"/>
+  <rect x="100" y="194" width="328" height="12" rx="6" fill="#A2CCF2"/>
+  <rect x="100" y="220" width="246" height="12" rx="6" fill="#9EDBB8"/>
+  <rect x="100" y="246" width="356" height="12" rx="6" fill="#A2CCF2"/>
+  <rect x="100" y="272" width="308" height="12" rx="6" fill="#D7A6C9"/>
+  <rect x="100" y="298" width="286" height="12" rx="6" fill="#9EDBB8"/>
+  <rect x="100" y="324" width="336" height="12" rx="6" fill="#A2CCF2"/>
+  <rect x="100" y="350" width="256" height="12" rx="6" fill="#D7A6C9"/>
+
+  <rect x="656" y="74" width="548" height="472" rx="14" fill="#FBFCFF" stroke="#ECEFF6"/>
+  <rect x="690" y="108" width="180" height="20" rx="10" fill="#A8B0C7"/>
+
+  <rect x="690" y="152" width="478" height="90" rx="12" fill="#FFFFFF" stroke="#E7EBF3"/>
+  <rect x="714" y="178" width="236" height="12" rx="6" fill="#7B6380"/>
+  <rect x="714" y="201" width="320" height="10" rx="5" fill="#B5BBCB"/>
+
+  <rect x="690" y="262" width="478" height="90" rx="12" fill="#FFFFFF" stroke="#E7EBF3"/>
+  <rect x="714" y="288" width="254" height="12" rx="6" fill="#2C7A7C"/>
+  <rect x="714" y="311" width="296" height="10" rx="5" fill="#B5BBCB"/>
+
+  <rect x="690" y="372" width="478" height="90" rx="12" fill="#FFFFFF" stroke="#E7EBF3"/>
+  <rect x="714" y="398" width="264" height="12" rx="6" fill="#965262"/>
+  <rect x="714" y="421" width="334" height="10" rx="5" fill="#B5BBCB"/>
+
+  <path d="M760 62C834 34 934 34 1016 62" stroke="#FFD86E" stroke-width="16" stroke-linecap="round" opacity="0.6"/>
+  <text x="80" y="579" fill="#6F7387" font-family="Lato, Arial, sans-serif" font-size="22">Provider architecture: add models, templates and business quick actions in minutes</text>
+</svg>

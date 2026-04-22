@@ -1,0 +1,377 @@
+<section class="o_spotlight_desc">
+  <style>
+    .o_spotlight_desc {
+      --o-bg: #f6f7fb;
+      --o-card: #ffffff;
+      --o-text: #2e2f3a;
+      --o-muted: #6f7284;
+      --o-primary: #714b67;
+      --o-primary-soft: #efe7ee;
+      --o-border: #e7e8ef;
+      --o-shadow: 0 20px 45px rgba(64, 22, 54, 0.08);
+      --o-radius: 18px;
+      margin: 0;
+      padding: 0;
+      color: var(--o-text);
+      font-family: "Lato", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 5% 0%, #ffffff 0%, var(--o-bg) 55%);
+    }
+
+    .o_spotlight_wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 34px 20px 56px;
+    }
+
+    .o_spotlight_hero {
+      border: 1px solid var(--o-border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, #ffffff 0%, #f7f3f8 45%, #eff5f7 100%);
+      box-shadow: var(--o-shadow);
+      padding: 30px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .o_spotlight_hero_content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .o_spotlight_hero_media {
+      flex-shrink: 0;
+      width: 45%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--o-border);
+      box-shadow: 0 8px 24px rgba(64, 22, 54, 0.1);
+    }
+
+    .o_spotlight_hero_media img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      .o_spotlight_hero {
+        flex-direction: column;
+      }
+      .o_spotlight_hero_media {
+        width: 100%;
+      }
+    }
+
+    .o_spotlight_badge {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--o-primary-soft);
+      color: var(--o-primary);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .o_spotlight_title {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+    }
+
+    .o_spotlight_marker {
+      position: relative;
+      display: inline-block;
+      color: var(--o-primary);
+      z-index: 1;
+    }
+
+    .o_spotlight_marker:after {
+      content: "";
+      position: absolute;
+      left: -5px;
+      right: -5px;
+      bottom: 2px;
+      height: 16px;
+      z-index: -1;
+      background: repeating-linear-gradient(
+        100deg,
+        rgba(255, 215, 84, 0.46) 0,
+        rgba(255, 215, 84, 0.46) 16px,
+        rgba(255, 204, 72, 0.34) 16px,
+        rgba(255, 204, 72, 0.34) 34px
+      );
+      border-radius: 9px;
+      transform: rotate(-1.6deg);
+    }
+
+    .o_spotlight_sub {
+      margin: 14px 0 0;
+      color: var(--o-muted);
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 800px;
+    }
+
+    .o_spotlight_features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .o_spotlight_feature {
+      border: 1px solid var(--o-border);
+      border-radius: 16px;
+      background: var(--o-card);
+      padding: 14px;
+      box-shadow: 0 8px 22px rgba(23, 23, 35, 0.04);
+    }
+
+    .o_spotlight_feature_head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .o_spotlight_icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--o-primary);
+      background: var(--o-primary-soft);
+      border: 1px solid #dfd3de;
+      flex-shrink: 0;
+    }
+
+    .o_spotlight_feature h3 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--o-primary);
+    }
+
+    .o_spotlight_feature p {
+      margin: 0;
+      color: var(--o-muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .o_spotlight_feature_media {
+      margin-top: 12px;
+      border: 1px solid var(--o-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .o_spotlight_feature_media img {
+      width: 100%;
+      display: block;
+    }
+
+    .o_spotlight_section {
+      margin-top: 24px;
+      background: var(--o-card);
+      border: 1px solid var(--o-border);
+      border-radius: var(--o-radius);
+      box-shadow: 0 10px 32px rgba(25, 22, 39, 0.05);
+      padding: 26px;
+    }
+
+    .o_spotlight_h2 {
+      margin: 0 0 6px;
+      font-size: 27px;
+      letter-spacing: -0.01em;
+    }
+
+    .o_spotlight_lead {
+      margin: 0;
+      color: var(--o-muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .o_spotlight_devlist {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: var(--o-muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .o_spotlight_media {
+      margin-top: 16px;
+      border: 1px solid var(--o-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .o_spotlight_media img {
+      width: 100%;
+      display: block;
+    }
+
+    .o_spotlight_footer {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--o-border);
+      background: #f9fafc;
+      color: var(--o-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .o_spotlight_footer strong {
+      color: var(--o-primary);
+    }
+
+    @media (max-width: 960px) {
+      .o_spotlight_title {
+        font-size: 34px;
+      }
+
+      .o_spotlight_sub {
+        font-size: 17px;
+      }
+
+      .o_spotlight_features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="o_spotlight_wrap">
+    <div class="o_spotlight_hero">
+      <div class="o_spotlight_hero_content">
+        <span class="o_spotlight_badge">Odoo 19 friendly</span>
+        <h1 class="o_spotlight_title">
+          Spotlight-level speed,
+          <span class="o_spotlight_marker">inside Odoo</span>
+        </h1>
+        <p class="o_spotlight_sub">
+          A floating command palette for power users and business teams. Search records from anywhere,
+          open faster, and execute actions instantly.
+        </p>
+      </div>
+      <div class="o_spotlight_hero_media">
+        <img src="assets/preview_quicksearch.gif" alt="Spotlight quick search preview" />
+      </div>
+    </div>
+    <h1 class="o_spotlight_title">
+      Boost your
+      <span class="o_spotlight_marker">navigation and productivity</span>
+    </h1>
+
+    <h1 class="o_spotlight_title">
+      Key
+      <span class="o_spotlight_marker">Features</span>
+    </h1>
+    <div class="o_spotlight_features">
+      <div class="o_spotlight_feature">
+        <div class="o_spotlight_feature_head">
+          <span class="o_spotlight_icon">SPD</span>
+          <h3>Rapidity</h3>
+        </div>
+        <p>Search any record from anywhere in Odoo with one shortcut.</p>
+        <div class="o_spotlight_feature_media">
+          <img src="assets/feature_rapidity.svg" alt="Rapidity feature" />
+        </div>
+      </div>
+
+      <div class="o_spotlight_feature">
+        <div class="o_spotlight_feature_head">
+          <span class="o_spotlight_icon">PRA</span>
+          <h3>Practical</h3>
+        </div>
+        <p>Press Enter to open, Shift+Enter for wizard mode, then run quick actions.</p>
+        <div class="o_spotlight_feature_media">
+          <img src="assets/feature_practical.svg" alt="Practical feature" />
+        </div>
+      </div>
+
+      <div class="o_spotlight_feature">
+        <div class="o_spotlight_feature_head">
+          <span class="o_spotlight_icon">OD</span>
+          <h3>Odoo-friendly</h3>
+        </div>
+        <p>Native look and feel, smooth UX, and full respect of Odoo security rules.</p>
+        <div class="o_spotlight_feature_media">
+          <img src="assets/feature_odoo_friendly.svg" alt="Odoo-friendly feature" />
+        </div>
+      </div>
+
+      <div class="o_spotlight_feature">
+        <div class="o_spotlight_feature_head">
+          <span class="o_spotlight_icon">CST</span>
+          <h3>Customizable</h3>
+        </div>
+        <p>Enable or disable models and control the number of results per provider.</p>
+        <div class="o_spotlight_feature_media">
+          <img src="assets/feature_customizable.svg" alt="Customizable feature" />
+        </div>
+      </div>
+
+      <div class="o_spotlight_feature" style="grid-column: 1 / -1;">
+        <div class="o_spotlight_feature_head">
+          <span class="o_spotlight_icon">FLX</span>
+          <h3>Flexible</h3>
+        </div>
+        <p>Customize templates, add providers, and adapt Spotlight to your business workflows.</p>
+        <div class="o_spotlight_feature_media">
+          <img src="assets/feature_flexible.svg" alt="Flexible feature" />
+        </div>
+      </div>
+    </div>
+
+    <div class="o_spotlight_section">
+      <h1 class="o_spotlight_title">
+        Built for
+        <span class="o_spotlight_marker">developers too</span>
+      </h1>
+        <p class="o_spotlight_lead">Extend Spotlight quickly with your own providers and quick actions.</p>
+        <ul class="o_spotlight_devlist">
+          <li>Add your own providers for any model.</li>
+          <li>Customize each result template.</li>
+          <li>Add business quick actions per model and state.</li>
+          <li>Keep Odoo access rights and security checks in place.</li>
+        </ul>
+        <div class="o_spotlight_media">
+          <img src="assets/developer_extensibility.svg" alt="Developer extensibility" />
+        </div>
+    </div>
+
+    <div class="o_spotlight_section">
+      <div class="o_spotlight_feature" style="grid-column: 1 / -1;">
+        <h1 class="o_spotlight_title">
+          <span class="o_spotlight_marker">Roadmap</span>
+        </h1>
+        <p class="o_spotlight_lead">Don't miss our upcoming features and improvements.</p>
+        <ul class="o_spotlight_devlist">
+          <li>Include more providers out of the box.</li>
+          <li>Use fuzzy search to find corresponding records.</li>
+          <li>Add the possibility to interact with Odoo's Ask AI feature.</li>
+        </ul>
+        <br />
+        <strong>If you have any requests or suggestions, please let us know!</strong> : contact@haroldd.dev
+      </div>
+    </div>
+
+    <div class="o_spotlight_footer">
+      <strong>Available now:</strong> Contacts, Sales, Invoices, quick actions, and user preferences.<br />
+      <strong>Ready to scale:</strong> add more providers as your project grows.
+    </div>
+  </div>
+</section>

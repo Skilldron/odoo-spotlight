@@ -1,0 +1,35 @@
+<svg width="1280" height="620" viewBox="0 0 1280 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="620" rx="24" fill="#F7F8FC"/>
+  <rect x="38" y="34" width="1204" height="552" rx="22" fill="#FFFFFF" stroke="#E4E8F2"/>
+
+  <rect x="72" y="74" width="244" height="474" rx="14" fill="#FBFCFF" stroke="#EBEEF5"/>
+  <rect x="96" y="106" width="172" height="14" rx="7" fill="#B5BBCD"/>
+  <rect x="96" y="139" width="196" height="38" rx="10" fill="#F6EFF7"/>
+  <rect x="108" y="152" width="126" height="12" rx="6" fill="#7B6378"/>
+  <rect x="96" y="189" width="166" height="12" rx="6" fill="#C1C6D5"/>
+  <rect x="96" y="214" width="138" height="12" rx="6" fill="#C1C6D5"/>
+  <rect x="96" y="239" width="148" height="12" rx="6" fill="#C1C6D5"/>
+
+  <rect x="346" y="74" width="860" height="474" rx="14" fill="#FCFDFF" stroke="#ECEFF6"/>
+  <rect x="378" y="108" width="356" height="18" rx="9" fill="#9CA4BC"/>
+  <rect x="378" y="136" width="540" height="12" rx="6" fill="#BFC5D5"/>
+
+  <rect x="378" y="182" width="796" height="136" rx="12" fill="#FFFFFF" stroke="#E7EBF3"/>
+  <rect x="404" y="208" width="230" height="14" rx="7" fill="#7F6780"/>
+  <rect x="404" y="234" width="326" height="11" rx="5.5" fill="#A9AFBF"/>
+
+  <rect x="998" y="206" width="150" height="32" rx="16" fill="#714B67"/>
+  <circle cx="1128" cy="222" r="11" fill="#FFFFFF"/>
+
+  <rect x="378" y="334" width="796" height="136" rx="12" fill="#FFFFFF" stroke="#E7EBF3"/>
+  <rect x="404" y="360" width="246" height="14" rx="7" fill="#7F6780"/>
+  <rect x="404" y="386" width="410" height="11" rx="5.5" fill="#A9AFBF"/>
+
+  <rect x="998" y="358" width="150" height="32" rx="16" fill="#D7DCEA"/>
+  <circle cx="1019" cy="374" r="11" fill="#FFFFFF"/>
+
+  <rect x="378" y="492" width="230" height="34" rx="10" fill="#EAF1F5"/>
+  <rect x="622" y="492" width="164" height="34" rx="10" fill="#714B67"/>
+  <path d="M522 92C594 62 662 58 740 86" stroke="#FFD768" stroke-width="15" stroke-linecap="round" opacity="0.6"/>
+  <text x="72" y="585" fill="#6F7387" font-family="Lato, Arial, sans-serif" font-size="22">User preferences: enable providers and tune result limits per user</text>
+</svg>

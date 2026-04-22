@@ -19,9 +19,17 @@
     border: 1px solid #adb5bd;
     color: #495057;
 }
+.o_account_payment_state_posted {
+    border: 1px solid #adb5bd;
+    color: #495057;
+}
 
 /* In payment */
 .o_account_payment_state_in_payment {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+.o_account_payment_state_draft {
     border: 1px solid #0d6efd;
     color: #0d6efd;
 }

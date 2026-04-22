@@ -1,0 +1,38 @@
+<svg width="1280" height="620" viewBox="0 0 1280 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="620" rx="24" fill="#F8F9FD"/>
+  <rect x="40" y="36" width="1200" height="548" rx="20" fill="#FFFFFF" stroke="#E5E8F1"/>
+  <rect x="74" y="74" width="1132" height="66" rx="16" fill="#F7F2F8" stroke="#EBDDE8"/>
+  <rect x="100" y="96" width="310" height="22" rx="11" fill="#CDBDCC"/>
+
+  <rect x="74" y="168" width="720" height="376" rx="14" fill="#FBFBFF" stroke="#EDEFF6"/>
+  <rect x="102" y="200" width="664" height="74" rx="12" fill="#F5EEF6"/>
+  <rect x="124" y="223" width="188" height="12" rx="6" fill="#7A6175"/>
+  <rect x="124" y="244" width="226" height="10" rx="5" fill="#AEA2AF"/>
+  <rect x="684" y="218" width="58" height="26" rx="8" fill="#FFFFFF" stroke="#DCCFDA"/>
+
+  <rect x="102" y="286" width="664" height="74" rx="12" fill="#FFFFFF" stroke="#EFF1F8"/>
+  <rect x="124" y="309" width="234" height="12" rx="6" fill="#79809A"/>
+  <rect x="124" y="330" width="264" height="10" rx="5" fill="#B8BDCD"/>
+
+  <rect x="102" y="372" width="664" height="74" rx="12" fill="#FFFFFF" stroke="#EFF1F8"/>
+  <rect x="124" y="395" width="166" height="12" rx="6" fill="#79809A"/>
+  <rect x="124" y="416" width="290" height="10" rx="5" fill="#B8BDCD"/>
+
+  <rect x="834" y="204" width="344" height="284" rx="14" fill="#FFFFFF" stroke="#E6E9F2"/>
+  <rect x="858" y="228" width="164" height="16" rx="8" fill="#C9CFE0"/>
+
+  <rect x="858" y="260" width="296" height="52" rx="10" fill="#F1F7FA" stroke="#DDECF2"/>
+  <circle cx="883" cy="286" r="9" fill="#1FA7A4"/>
+  <rect x="902" y="279" width="120" height="12" rx="6" fill="#317478"/>
+
+  <rect x="858" y="320" width="296" height="52" rx="10" fill="#FFF5F5" stroke="#F4DADC"/>
+  <circle cx="883" cy="346" r="9" fill="#DC6B73"/>
+  <rect x="902" y="339" width="106" height="12" rx="6" fill="#9E4B50"/>
+
+  <rect x="858" y="380" width="296" height="52" rx="10" fill="#F7F3FA" stroke="#E7DDF0"/>
+  <circle cx="883" cy="406" r="9" fill="#7A5E89"/>
+  <rect x="902" y="399" width="136" height="12" rx="6" fill="#69517A"/>
+
+  <path d="M884 186C968 146 1065 154 1138 182" stroke="#FFD46A" stroke-width="16" stroke-linecap="round" opacity="0.62"/>
+  <text x="78" y="572" fill="#6F7387" font-family="Lato, Arial, sans-serif" font-size="22">Quick Actions: archive, delete, and model-specific business actions from one place</text>
+</svg>

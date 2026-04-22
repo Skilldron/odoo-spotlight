@@ -32,6 +32,7 @@ export class SpotlightQuickActions extends Component {
         this.toggleQuickActions();
         return;
       }
+      if (!this.state.isQuickActionsOpen) return;
 
       switch (ev.key) {
         case "ArrowDown":

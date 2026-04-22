@@ -61,6 +61,42 @@ export const SaleOrderSpotlightProvider = {
       target: openInDialog ? "new" : "current",
     });
   },
+  getQuickActions({ env, record, model, doAction }) {
+    const actions = [];
+
+    if (record.state === "draft") {
+      actions.push({
+        id: "send_quotation",
+        label: _t("Send quotation"),
+        icon: "fa-paper-plane",
+        isDestructive: false,
+        async execute() {
+          const action = await env.services.orm.call(
+            model,
+            "action_quotation_send",
+            [[record.id]],
+          );
+          if (action) {
+            await doAction(action);
+          }
+        },
+      });
+    }
+
+    if (record.state === "draft") {
+      actions.push({
+        id: "confirm_order",
+        label: _t("Confirm order"),
+        icon: "fa-check",
+        isDestructive: false,
+        async execute() {
+          return await env.services.orm.call(model, "action_confirm", [[record.id]]);
+        },
+      });
+    }
+
+    return actions;
+  },
 };
 
 spotlightSectionsRegistry.add(

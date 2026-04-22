@@ -16,7 +16,6 @@ export const ResPartnerSpotlightProvider = {
     "email",
     "is_company",
     "phone",
-    "mobile",
     "city",
     "country_id",
   ],

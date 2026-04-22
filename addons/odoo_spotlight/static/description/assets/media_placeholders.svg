@@ -1,0 +1,31 @@
+<svg width="1280" height="620" viewBox="0 0 1280 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="620" rx="24" fill="#F7F8FC"/>
+  <rect x="40" y="36" width="1200" height="548" rx="20" fill="#FFFFFF" stroke="#E4E8F2"/>
+
+  <rect x="78" y="82" width="364" height="226" rx="14" fill="#F4EEF7" stroke="#E6DBEB"/>
+  <text x="108" y="122" fill="#6E5571" font-family="Lato, Arial, sans-serif" font-size="24" font-weight="700">GIF Placeholder #1</text>
+  <text x="108" y="152" fill="#7F6C83" font-family="Lato, Arial, sans-serif" font-size="18">Open spotlight + search + open record</text>
+  <circle cx="260" cy="220" r="44" fill="#714B67"/>
+  <path d="M245 198V242L283 220L245 198Z" fill="#FFFFFF"/>
+
+  <rect x="458" y="82" width="364" height="226" rx="14" fill="#EEF6F9" stroke="#DCECF2"/>
+  <text x="488" y="122" fill="#2B6D76" font-family="Lato, Arial, sans-serif" font-size="24" font-weight="700">GIF Placeholder #2</text>
+  <text x="488" y="152" fill="#51808A" font-family="Lato, Arial, sans-serif" font-size="18">Quick actions business flow</text>
+  <circle cx="640" cy="220" r="44" fill="#1FA7A4"/>
+  <path d="M625 198V242L663 220L625 198Z" fill="#FFFFFF"/>
+
+  <rect x="838" y="82" width="364" height="226" rx="14" fill="#FFF4EE" stroke="#F3E2D6"/>
+  <text x="868" y="122" fill="#8A5F47" font-family="Lato, Arial, sans-serif" font-size="24" font-weight="700">Video Placeholder</text>
+  <text x="868" y="152" fill="#A07A66" font-family="Lato, Arial, sans-serif" font-size="18">45-60 sec full story demo</text>
+  <circle cx="1020" cy="220" r="44" fill="#D38C67"/>
+  <path d="M1005 198V242L1043 220L1005 198Z" fill="#FFFFFF"/>
+
+  <rect x="78" y="332" width="1124" height="212" rx="14" fill="#FBFCFF" stroke="#ECEFF7"/>
+  <text x="110" y="374" fill="#7A7E92" font-family="Lato, Arial, sans-serif" font-size="24" font-weight="700">Capture checklist</text>
+  <text x="110" y="408" fill="#8F93A6" font-family="Lato, Arial, sans-serif" font-size="19">1) Query on Partners / Sales / Invoices</text>
+  <text x="110" y="437" fill="#8F93A6" font-family="Lato, Arial, sans-serif" font-size="19">2) Open in full screen and in modal</text>
+  <text x="110" y="466" fill="#8F93A6" font-family="Lato, Arial, sans-serif" font-size="19">3) Trigger quick actions (archive, delete, business action)</text>
+  <text x="110" y="495" fill="#8F93A6" font-family="Lato, Arial, sans-serif" font-size="19">4) Show Spotlight Settings in user preferences</text>
+
+  <path d="M878 362C942 334 1038 332 1112 358" stroke="#FFD768" stroke-width="15" stroke-linecap="round" opacity="0.65"/>
+</svg>
