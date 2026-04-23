@@ -9,8 +9,6 @@
             <i class="fa fa-search o_spotlight_search_icon"></i>
             <input class="o_spotlight_search" t-att-value="state.searchValue" placeholder="Type a name, email, or reference..." t-ref="searchInput" t-on-input="onSearchInput" />
           </div>
-
-          <div class="text-muted navigation_tip">Press <kbd class="mx-1">↵</kbd> to open full screen  |  Press <kbd class="mx-1">⇧ + ↵</kbd> to open in wizard</div>
         </div>
 
         <div class="o_spotlight_results position-relative overflow-auto">
@@ -34,20 +32,35 @@
           </t>
         </div>
         <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted d-flex justify-content-between align-items-center">
-          <div>
-            <span class="fw-bolder text-primary">TIP</span>
-            — Press <kbd>Tab</kbd> to switch to Odoo
-            command palette
-          </div>
+             <div>
+              <span>
+                 <kbd>↑</kbd> <kbd class="mx-1">↓</kbd>Navigate
+                </span>
+             </div>
+             <div>
+               <span>
+                 <kbd class="mx-1">↵</kbd> open
+                </span>
+                <span>
+                  <kbd class="mx-1">⇧ + ↵</kbd> Wizard mode
+                </span>
+              </div>
 
-          <SpotlightQuickActions
-            t-props="{
-              item: activeItem,
-              onAfterExecute: handleAfterQuickAction,
-              bus: props.bus
-            }"
-          />
-        </div>
+              <SpotlightQuickActions
+              t-props="{
+                item: activeItem,
+                onAfterExecute: handleAfterQuickAction,
+                bus: props.bus
+                }"
+                />
+          </div>
+          <div class="o_spotlight_footer px-4 py-2 border-top rounded-bottom bg-100 text-muted d-flex align-items-center small">
+            <div>
+              <span class="fw-bolder text-primary">TIP</span>
+              — Press <kbd>Tab</kbd> to switch to Odoo
+              command palette
+            </div>
+          </div>
       </div>
     </Dialog>
   </t>
