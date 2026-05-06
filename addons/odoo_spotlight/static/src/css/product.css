@@ -1,0 +1,18 @@
+/* Product type badges */
+.o_product_type_consu {
+    background: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+
+.o_product_type_service {
+    background: transparent;
+    border: 1px solid #6f42c1;
+    color: #6f42c1;
+}
+
+.o_product_type_combo {
+    background: transparent;
+    border: 1px solid #fd7e14;
+    color: #fd7e14;
+}

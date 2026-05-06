@@ -1,0 +1,36 @@
+/* Stock picking state badges */
+.o_stock_state_draft {
+    background: transparent;
+    border: 1px solid #adb5bd;
+    color: #495057;
+}
+
+.o_stock_state_waiting {
+    background: transparent;
+    border: 1px solid #fd7e14;
+    color: #fd7e14;
+}
+
+.o_stock_state_confirmed {
+    background: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+
+.o_stock_state_assigned {
+    background: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+}
+
+.o_stock_state_done {
+    background: transparent;
+    border: 1px solid #0f5132;
+    color: #0f5132;
+}
+
+.o_stock_state_cancel {
+    background: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}

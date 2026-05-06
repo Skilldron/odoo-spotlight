@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.StockPickingItemContent">
+        <div class="o_spotlight_item_body d-flex align-items-center gap-3">
+            <t t-if="props.item.idPartner">
+                <img
+                    class="o_spotlight_avatar rounded-circle flex-shrink-0"
+                    t-att-src="'/web/image/res.partner/' + props.item.idPartner + '/image_128'"
+                    alt="Partner"
+                />
+            </t>
+            <t t-else="">
+                <div class="o_spotlight_avatar rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light">
+                    <i class="fa fa-truck text-muted"/>
+                </div>
+            </t>
+
+            <div class="o_spotlight_item_main flex-grow-1 min-w-0">
+                <div class="o_spotlight_item_title d-flex align-items-center gap-2">
+                    <span class="fw-semibold text-truncate">
+                        <t t-esc="props.item.name"/>
+                    </span>
+                    <t t-if="props.item.partner">
+                        <span class="text-muted">•</span>
+                        <span class="text-muted text-truncate">
+                            <t t-esc="props.item.partner"/>
+                        </span>
+                    </t>
+                </div>
+
+                <div class="o_spotlight_item_subtitle small text-muted">
+                    <i class="fa fa-exchange me-1"/>
+                    <t t-esc="props.item.pickingType"/>
+                    <t t-if="props.item.origin">
+                        <span class="mx-1">•</span>
+                        <t t-esc="props.item.origin"/>
+                    </t>
+                </div>
+            </div>
+
+            <div class="o_spotlight_item_right text-end flex-shrink-0">
+                <span t-att-class="'badge o_stock_state_' + props.item.state">
+                    <t t-esc="props.item.stateLabel"/>
+                </span>
+                <t t-if="props.item.scheduledDate">
+                    <div t-att-class="'small mt-1 fw-semibold ' + props.item.scheduledDateClass">
+                        <t t-esc="props.item.scheduledDate"/>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_spotlight.ProductItemContent">
+        <div class="o_spotlight_item_body d-flex align-items-center gap-3">
+            <img
+                class="o_spotlight_avatar rounded flex-shrink-0"
+                t-att-src="'/web/image/product.product/' + props.item.id + '/image_128'"
+                alt="Product"
+            />
+
+            <div class="o_spotlight_item_main flex-grow-1 min-w-0">
+                <div class="o_spotlight_item_title d-flex align-items-center gap-2">
+                    <span class="fw-semibold text-truncate">
+                        <t t-esc="props.item.name"/>
+                    </span>
+                    <t t-if="props.item.internalRef">
+                        <span class="text-muted">•</span>
+                        <span class="text-muted text-truncate small">
+                            [<t t-esc="props.item.internalRef"/>]
+                        </span>
+                    </t>
+                </div>
+
+                <div class="o_spotlight_item_subtitle small text-muted">
+                    <i class="fa fa-tag me-1"/>
+                    <t t-esc="props.item.category"/>
+                </div>
+            </div>
+
+            <div class="o_spotlight_item_right text-end flex-shrink-0">
+                <span t-att-class="'badge o_product_type_' + props.item.type">
+                    <t t-esc="props.item.typeLabel"/>
+                </span>
+                <div class="fw-semibold mt-1">
+                    <t t-esc="props.item.price"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

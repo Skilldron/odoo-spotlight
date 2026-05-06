@@ -1,0 +1,36 @@
+/* Purchase order state badges */
+.o_purchase_state_draft {
+    background: transparent;
+    border: 1px solid #adb5bd;
+    color: #495057;
+}
+
+.o_purchase_state_sent {
+    background: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+
+.o_purchase_state_to_approve {
+    background: transparent;
+    border: 1px solid #fd7e14;
+    color: #fd7e14;
+}
+
+.o_purchase_state_purchase {
+    background: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+}
+
+.o_purchase_state_done {
+    background: transparent;
+    border: 1px solid #0f5132;
+    color: #0f5132;
+}
+
+.o_purchase_state_cancel {
+    background: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
